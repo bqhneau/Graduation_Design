@@ -8,17 +8,17 @@ vue.js+node.js 毕业设计 -----
 
 # 运行
 
-- 1.安装 node 环境（百度）
+- 1.安装 node 环境
 - 2.导入数据库
   - 数据库文件/数据库
   - 数据库配置文件/server/plugins/DataBase.ini.js
-- 3.分别在/admin；/server/；/web 下面执行命令
+- 3.分别在/admin；/server/；/web 下面执行命令（node 版本 16）
 
 ```
 npm i
 ```
 
-- 4.分别在/admin；/server/；/web 下面执行命令
+- 4.分别在/admin；/server/；/web 下面执行命令（node版本16）
 
 ```
 npm run serve
