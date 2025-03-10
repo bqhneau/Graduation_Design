@@ -6,8 +6,8 @@
         <div class="container">
           <div class="logo-container">
             <!-- Website Logo -->
-            <span style="font-size: 35px;color: white;">Buyi</span>
-            <span class="tag-line">攀枝花学院信息交流平台</span>
+            <img src="https://dqxx.neau.edu.cn/images/0910guanwangzuoshangjiaologo.png" alt="" style="width: 315px;">
+            <span class="tag-line">信息交流平台</span>
           </div>
           <!-- Start of Main Navigation -->
           <nav class="main-nav">
@@ -32,29 +32,18 @@
                   <a>文章/新闻</a>
                 </router-link>
 
-                <li v-if="avatar==''">
+                <li v-if="avatar == ''">
                   <a @click="closein">登录/注册</a>
                 </li>
                 <el-dropdown v-else>
                   <a style="color: #c1cad1;">
-                    <img
-                      v-if="unread==0"
-                      style="     height: 20px; "
-                      :src="avatar"
-                      class="avatar touxiang avatar-60 photo"
-                      height="20"
-                      width="20"
-                    />
+                    <img v-if="unread == 0" style=" height: 20px; " :src="avatar"
+                      class="avatar touxiang avatar-60 photo" height="20" width="20" />
                     <el-badge v-else :value="unread" class="item">
-                      <img
-                        style="     height: 20px; "
-                        :src="avatar"
-                        class="avatar touxiang avatar-60 photo"
-                        height="20"
-                        width="20"
-                      />
+                      <img style=" height: 20px; " :src="avatar" class="avatar touxiang avatar-60 photo" height="20"
+                        width="20" />
                     </el-badge>
-                    {{nickname}}
+                    {{ nickname }}
                   </a>
                   <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item>
@@ -62,12 +51,8 @@
                     </el-dropdown-item>
 
                     <el-dropdown-item>
-                      <router-link
-                        to="/admin/notice"
-                        tag="li"
-                        exact-active-class="current-menu-item"
-                      >
-                        <a v-if="unread==0">消息中心</a>
+                      <router-link to="/admin/notice" tag="li" exact-active-class="current-menu-item">
+                        <a v-if="unread == 0">消息中心</a>
                         <el-badge v-else :value="unread" class="item">
                           <a>消息中心</a>
                         </el-badge>
@@ -92,11 +77,7 @@
                 </router-link>-->
               </ul>
             </div>
-            <select
-              v-model="selected"
-              @change="changeHref(parseInt(selected))"
-              class="responsive-nav"
-            >
+            <select v-model="selected" @change="changeHref(parseInt(selected))" class="responsive-nav">
               <option value="1">首页</option>
               <option value="2">问答</option>
               <option value="3">活动</option>
@@ -113,20 +94,16 @@
     <!-- Start of Search Wrapper -->
     <div class="search-area-wrapper">
       <div class="search-area container">
-        <h3 class="search-header">Pzhu Campus Service</h3>
-        <!-- <button class="header-btn">发布信息</button> -->
+        <h3 class="search-header">
+          {{ typewriterText }}<span class="cursor">_</span>
+        </h3>
         <p class="search-tag-line" style="margin-top:50px">
-          Information sharing and communication platform of PANZHIHUA University
-          , Makes information transfer easier
+          校园二手交易平台，让你的闲置物品找到新主人，低价淘好物，环保又省钱！📚💻👕 <br>
+          快来加入我们，让交易更简单，让校园更绿色！🌱✨
         </p>
 
         <form class="search-form clearfix" @submit.prevent="onSubmit">
-          <input
-            class="search-term required"
-            type="text"
-            v-model="search"
-            placeholder="Type your search terms here"
-          />
+          <input class="search-term required" type="text" v-model="search" placeholder="🔍  请输入你感兴趣的内容来搜索  " />
           <input class="search-btn" type="submit" @click="searchbtn" value="搜索" />
           <div id="search-error-container"></div>
         </form>
@@ -142,7 +119,7 @@
     <div class="login" v-if="isclose">
       <div id="mask"></div>
       <div id="loginBox">
-        <h2>{{islogin?"网站登录":"新用户注册"}}</h2>
+        <h2>{{ islogin ? "网站登录" : "新用户注册" }}</h2>
         <div class="user">
           账 号：
           <input type="text" v-model="username" name="username" class="text" />
@@ -159,9 +136,9 @@
           <input type="button" @click="login" value="登录" class="submit" />
         </div>
         <div class="button" v-else>
-          <input type="button" value="注册" @click="   registered " class="submit" />
+          <input type="button" value="注册" @click="registered" class="submit" />
         </div>
-        <div class="other" @click="join">{{islogin?"注册新用户":"快去登录"}}</div>
+        <div class="other" @click="join">{{ islogin ? "注册新用户" : "快去登录" }}</div>
         <a class="iconfont" @click="close">&#xe608;</a>
       </div>
     </div>
@@ -185,7 +162,10 @@ export default {
       password1: "",
       username: "",
       hover: false,
-      search: ""
+      search: "",
+      typewriterText: "",
+      fullText: "闲置有价，交易无忧 ",
+      typewriterSpeed: 150
     };
   },
   computed: {
@@ -197,6 +177,9 @@ export default {
       unread: state => state.user.unread
     })
   },
+  mounted() {
+    this.startTypewriter();
+  },
   methods: {
     ...mapActions("user", [
       "setUserInfo",
@@ -207,6 +190,17 @@ export default {
       "setunread",
       "deleteuserinfo"
     ]),
+    startTypewriter() {
+      let currentIndex = 0;
+      const timer = setInterval(() => {
+        if (currentIndex < this.fullText.length) {
+          this.typewriterText += this.fullText.charAt(currentIndex);
+          currentIndex++;
+        } else {
+          clearInterval(timer);
+        }
+      }, this.typewriterSpeed);
+    },
     //个人hover弹窗
     overShow() {
       this.hover = !this.hover;
@@ -343,16 +337,16 @@ export default {
         });
     },
     async getnocitenmu() {
-          const res = await this.$axios.post(
-            "/web/getnotice",
-            this.qs.stringify({ num: 1 })
-          );
-          console.log(res.data);
-          this.setunread(res.data.data.count);
+      const res = await this.$axios.post(
+        "/web/getnotice",
+        this.qs.stringify({ num: 1 })
+      );
+      console.log(res.data);
+      this.setunread(res.data.data.count);
     }
   },
   created() {
-     localStorage.luffy_jwt_token&&this.getnocitenmu();
+    localStorage.luffy_jwt_token && this.getnocitenmu();
   }
 };
 </script>
@@ -368,6 +362,7 @@ export default {
   display: table;
   margin: 0 auto;
 }
+
 #mask {
   position: fixed;
   z-index: 999;
@@ -381,79 +376,106 @@ export default {
   margin: 0;
   /* display: none;  */
 }
+
 #loginBox {
   position: fixed;
-  left: 50%; /* 定位父级的50% */
-  top: 50%;
-  transform: translate(-50%, -50%); /*自己的50% */
-  z-index: 1000;
-  width: 380px;
-  height: 330px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  /* display: none;  */
-}
-#loginBox h2 {
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-  font-size: 14px;
-  letter-spacing: 1px;
-  color: #666;
-  /* background: url(../images/login_header.png) repeat-x; */
-  margin: 0;
-  padding: 0;
-  border-bottom: 1px solid #ccc;
-  margin: 0 0 20px 0;
-}
-#loginBox h2 img {
-  display: block;
-  float: right;
-  position: relative;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-#loginBox .user,
-#loginBox .pass {
-  font-size: 14px;
-  color: #666;
-  padding: 5px 0;
-  text-align: center;
-}
-#loginBox input.text {
-  width: 200px;
-  height: 25px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-}
-#loginBox .button {
-  text-align: center;
-  padding: 10px 0;
-}
-#loginBox input.submit {
-  width: 107px;
-  height: 30px;
-  background-color: rgb(179, 146, 233);
-  border: none;
-  cursor: pointer;
-}
-#loginBox .other {
-  text-align: right;
-  padding: 15px 10px;
-  font-size: 14px;
-  color: #666;
-
-  cursor: pointer;
-}
-.iconfont {
-  font-size: 20px;
-  color: #000;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  cursor: pointer;
-}
+  left: 50%;
+    /* 定位父级的50% */
+    top: 50%;
+    transform: translate(-50%, -50%);
+      /*自己的50% */
+      z-index: 1000;
+      width: 380px;
+      height: 330px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      /* display: none;  */
+    }
+    
+        #loginBox h2 {
+          height: 40px;
+          text-align: center;
+          line-height: 40px;
+          font-size: 14px;
+          letter-spacing: 1px;
+          color: #666;
+          /* background: url(../images/login_header.png) repeat-x; */
+          margin: 0;
+          padding: 0;
+          border-bottom: 1px solid #ccc;
+          margin: 0 0 20px 0;
+        }
+    
+        #loginBox h2 img {
+          display: block;
+          float: right;
+          position: relative;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+        }
+    
+        #loginBox .user,
+        #loginBox .pass {
+          font-size: 14px;
+          color: #666;
+          padding: 5px 0;
+          text-align: center;
+        }
+    
+        #loginBox input.text {
+          width: 200px;
+          height: 25px;
+          font-size: 14px;
+          border: 1px solid #ccc;
+          background-color: #fff;
+        }
+    
+        #loginBox .button {
+          text-align: center;
+          padding: 10px 0;
+        }
+    
+        #loginBox input.submit {
+          width: 107px;
+          height: 30px;
+          background-color: rgb(179, 146, 233);
+          border: none;
+          cursor: pointer;
+        }
+    
+        #loginBox .other {
+          text-align: right;
+          padding: 15px 10px;
+          font-size: 14px;
+          color: #666;
+    
+          cursor: pointer;
+        }
+    
+        .iconfont {
+          font-size: 20px;
+          color: #000;
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          cursor: pointer;
+        }
+    
+        .cursor {
+          display: inline-block;
+          animation: blink 0.7s infinite;
+        }
+    
+        @keyframes blink {
+    
+          0%,
+          100% {
+            opacity: 1;
+          }
+    
+          50% {
+            opacity: 0;
+          }
+        }
 </style>
-

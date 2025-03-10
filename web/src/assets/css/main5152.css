@@ -45,7 +45,7 @@ blockquote p {
 }
 
 .logo-container {
-  padding: 19px 0;
+  padding: 5px 0;
 }
 .logo-container img {
   margin-right: 10px;
@@ -57,7 +57,7 @@ blockquote p {
 
 span.tag-line {
   color: #818a90;
-  font-size: 12px;
+  font-size: 14px;
   position: relative;
   top: 2px;
 }
