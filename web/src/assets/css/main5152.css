@@ -3,6 +3,11 @@ body {
   background-color: #fff;
 }
 
+p {
+  margin: 0;
+  padding: 3px;
+}
+
 a:hover {
   text-decoration: none;
 }
