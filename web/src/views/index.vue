@@ -92,7 +92,7 @@
     </div>
     <!-- End of Header -->
     <!-- Start of Search Wrapper -->
-    <div class="search-area-wrapper">
+    <div class="search-area-wrapper" style="display: flex; align-items: center; justify-content: center;">
       <div class="search-area container">
         <h3 class="search-header">
           {{ typewriterText }}<span class="cursor">_</span>

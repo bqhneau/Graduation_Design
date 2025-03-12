@@ -8,7 +8,7 @@
             <section class="widget">
               <h3 class="title">📌 主要功能</h3>
               <div class="textwidget">
-                <p><strong>信息发布 📢</strong> — 轻松发布求助、闲置交易、学习交流等内容。</p>
+                <p><strong>信息发布 📢</strong> — 发布求助、闲置交易。</p>
                 <p><strong>评论互动 💬</strong> — 交流讨论，互帮互助。</p>
                 <p><strong>搜索查询 🔍</strong> — 快速找到所需信息。</p>
                 <p><strong>通知提醒 🔔</strong> — 重要信息不错过。</p>
@@ -27,7 +27,7 @@
             </section>
           </div>
 
-          <div class="span3">
+          <div class="span2">
             <section class="widget">
               <h3 class="title">🔗 友情链接</h3>
               <ul>
@@ -44,7 +44,7 @@
             </section>
           </div>
 
-          <div class="span3">
+          <div class="span2">
             <section class="widget">
               <h3 class="title">💡 帮助与建议</h3>
               <ul>
