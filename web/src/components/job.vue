@@ -8,7 +8,7 @@
         style="position:relative;cursor:pointer"
       >
         <h3>岗位</h3>
-        <h4 style="  position: absolute;right: 100px;top: 4px;">更多></h4>
+        <h4 style="  position: absolute;right: 10px;top: 4px;">更多></h4>
       </router-link>
       <ul>
         <li v-for="(job, id) in job" :key="id">
@@ -26,7 +26,7 @@
         style="position:relative;cursor:pointer"
       >
         <h3>公司</h3>
-        <h4 style="  position: absolute;right: 100px;top: 4px;">更多></h4>
+        <h4 style="  position: absolute;right: 10px;top: 4px;">更多></h4>
       </router-link>
       <ul id="recentcomments">
         <li class="recentcomments" v-for="(company, id) in company" :key="id">

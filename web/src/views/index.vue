@@ -98,8 +98,9 @@
           {{ typewriterText }}<span class="cursor">_</span>
         </h3>
         <p class="search-tag-line" style="margin-top:50px">
-          校园二手交易平台，让你的闲置物品找到新主人，低价淘好物，环保又省钱！📚💻👕 <br>
-          快来加入我们，让交易更简单，让校园更绿色！🌱✨
+          📣 这里有最新校园动态、实习招聘、社团活动，所有信息一目了然！<br>
+          💬 经验分享、知识问答、精彩文章？🎭 想参加讲座、竞赛、校园活动？🛒 低价二手交易，随时查看，不错过任何机会！ <br>
+          🏆 这里是你的校园资讯中心，畅享最便捷的校园生活！
         </p>
 
         <form class="search-form clearfix" @submit.prevent="onSubmit">
@@ -114,31 +115,28 @@
     <!-- start of foot -->
     <foot />
     <!-- end of foot -->
-    <!-- 弹窗组件 -->
 
+    <!-- 登陆/注册 -->
     <div class="login" v-if="isclose">
       <div id="mask"></div>
       <div id="loginBox">
         <h2>{{ islogin ? "网站登录" : "新用户注册" }}</h2>
-        <div class="user">
-          账 号：
-          <input type="text" v-model="username" name="username" class="text" />
+        <div class="input-group">
+          <label for="username">账 号：</label>
+          <input type="text" v-model="username" id="username" class="input-field" placeholder="请输入账号" />
         </div>
-        <div class="pass">
-          密 码：
-          <input type="password" v-model="password" name="password" class="text" />
+        <div class="input-group">
+          <label for="password">密 码：</label>
+          <input type="password" v-model="password" id="password" class="input-field" placeholder="请输入密码" />
         </div>
-        <div class="pass" v-if="!islogin">
-          确 认：
-          <input type="password" v-model="password1" name="password" class="text" />
+        <div class="input-group" v-if="!islogin">
+          <label for="password1">确认：</label>
+          <input type="password" v-model="password1" id="password1" class="input-field" placeholder="请再次输入密码" />
         </div>
-        <div class="button" v-if="islogin">
-          <input type="button" @click="login" value="登录" class="submit" />
+        <div class="action-buttons">
+          <input type="button" @click="islogin ? login() : registered()" :value="islogin ? '登录' : '注册'" class="submit-button" />
         </div>
-        <div class="button" v-else>
-          <input type="button" value="注册" @click="registered" class="submit" />
-        </div>
-        <div class="other" @click="join">{{ islogin ? "注册新用户" : "快去登录" }}</div>
+        <div class="switch-action" @click="join">{{ islogin ? "注册新用户" : "去登录" }}</div>
         <a class="iconfont" @click="close">&#xe608;</a>
       </div>
     </div>
@@ -164,7 +162,7 @@ export default {
       hover: false,
       search: "",
       typewriterText: "",
-      fullText: "闲置有价，交易无忧 ",
+      fullText: "发现校园新鲜事，连接信息共享圈 ",
       typewriterSpeed: 150
     };
   },
@@ -352,6 +350,92 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#loginBox {
+  width: 400px;
+  padding: 40px;
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  font-family: Arial, sans-serif;
+  transition: 0.3s ease;
+  text-align: center;
+}
+
+#loginBox h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #222;
+}
+
+.input-group {
+  margin-bottom: 5px;
+  text-align: left;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.input-group label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.input-field {
+  width: 93%;
+  padding: 12px;
+  font-size: 14px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+  color: #333;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #0a3b6fd3;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  background-color: #4e72b2;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #2e5f91;
+  box-shadow: 0 4px 10px rgba(0, 91, 187, 0.4);
+}
+
+.switch-action {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+.switch-action:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 .header-btn {
   background-color: #2c696d;
   font-size: 14px;
@@ -385,8 +469,6 @@ export default {
     transform: translate(-50%, -50%);
       /*自己的50% */
       z-index: 1000;
-      width: 380px;
-      height: 330px;
       border: 1px solid #ccc;
       background-color: #fff;
       /* display: none;  */
@@ -396,7 +478,7 @@ export default {
           height: 40px;
           text-align: center;
           line-height: 40px;
-          font-size: 14px;
+          font-size: 18px;
           letter-spacing: 1px;
           color: #666;
           /* background: url(../images/login_header.png) repeat-x; */
@@ -457,8 +539,8 @@ export default {
           font-size: 20px;
           color: #000;
           position: absolute;
-          right: 10px;
-          top: 10px;
+          right: 30px;
+          top: 25px;
           cursor: pointer;
         }
     

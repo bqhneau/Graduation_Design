@@ -8,7 +8,7 @@
         style="position:relative;cursor:pointer"
       >
         <h3>讨论/问答</h3>
-        <h4 style="  position: absolute;right: 100px;top: 4px;">更多></h4>
+        <h4 style="  position: absolute;right: 10px;top: 4px;">更多></h4>
       </router-link>
       <ul class="articles">
         <li

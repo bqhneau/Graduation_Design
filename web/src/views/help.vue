@@ -9,10 +9,10 @@
           <!-- start of page content -->
           <div class="span8 page-content">
             <div >
-              <h1>
+              <h3>
                 问答区
                 <small>{{smallttle}}</small>
-              </h1>
+              </h3>
             </div>
             <!-- Basic Home Page Template -->
             <ul class="tabs-nav">

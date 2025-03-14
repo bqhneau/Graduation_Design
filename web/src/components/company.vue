@@ -4,7 +4,7 @@
       <div style="position:relative;cursor:pointer">
         <h3 class="title">公司</h3>
         <el-pagination
-          style="position: absolute;right: 100px;top: 4px;"
+          style="position: absolute;right: 10px;top: 4px;"
           @current-change="handleCurrentChange"
           layout="prev, next"
           :total="pagelistquery.total"

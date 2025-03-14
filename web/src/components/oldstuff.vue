@@ -1,7 +1,7 @@
 <template>
   <div class="help">
-    <section class="widget">
-      <div class="row">
+    <section class="widget" >
+      <div class="row" style="width: 770px;margin-left: 0px;">
         <router-link
           to="/oldstuff"
           tag="div"
@@ -9,7 +9,7 @@
           style="position:relative;cursor:pointer"
         >
           <h3>二手交易</h3>
-          <h4 style="  position: absolute;right: 100px;top: 4px;">更多></h4>
+          <h4 style="  position: absolute;right: 10px;top: 4px;">更多></h4>
         </router-link>
         <div
           style="margin :1%"

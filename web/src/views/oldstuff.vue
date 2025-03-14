@@ -28,7 +28,7 @@
               </li>
             </ul>
             <section class="widget">
-              <div class="row">
+              <div class="row" style="width: 770px; margin-left: 0px;">
                 <div
                   style="margin :1%"
                   class="col-sm-6 col-md-4"

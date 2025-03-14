@@ -190,7 +190,8 @@ form.search-form input.search-term {
   line-height: 24px;
   padding: 12px;
   width: 50%;
-  color: #858c91;
+  color: white;
+  font-size: 14px;
   margin-right: 10px;
   margin-bottom: 0;
   border-radius: 5px;
@@ -431,11 +432,6 @@ li.comment > article .avatar {
 }
 #searchform label.screen-reader-text {
   display: none;
-}
-
-.widget h3 {
-  font-weight: 600;
-  font-size: 20px;
 }
 .widget ul li {
   list-style: none;

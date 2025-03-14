@@ -9,7 +9,7 @@
         style="position:relative;cursor:pointer"
       >
         <h3>新闻/文章</h3>
-        <h4 style="  position: absolute;right: 100px;top: 4px;">更多></h4>
+        <h4 style="  position: absolute;right: 10px;top: 4px;">更多></h4>
       </router-link>
       <article
         class="format-standard type-post hentry clearfix"
