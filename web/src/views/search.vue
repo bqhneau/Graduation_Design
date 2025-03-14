@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div v-title data-title="pzhu | 搜索"></div>
+    <div v-title data-title="平台 | 搜索"></div>
 
     <!-- Start of Page Container -->
     <div class="page-container">

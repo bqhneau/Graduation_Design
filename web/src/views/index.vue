@@ -6,7 +6,7 @@
         <div class="container">
           <div class="logo-container">
             <!-- Website Logo -->
-            <img src="https://dqxx.neau.edu.cn/images/0910guanwangzuoshangjiaologo.png" alt="" style="width: 315px;">
+            <img src="../assets/images/logo.png" alt="" style="width: 315px;">
             <span class="tag-line">信息交流平台</span>
           </div>
           <!-- Start of Main Navigation -->

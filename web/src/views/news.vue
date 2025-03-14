@@ -1,6 +1,6 @@
 <template>
   <div class="help">
-    <div v-title data-title="pzhu | 问答"></div>
+    <div v-title data-title="平台 | 问答"></div>
 
     <!-- Start of Page Container -->
     <div class="page-container">
