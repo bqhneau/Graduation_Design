@@ -1,7 +1,6 @@
 <template>
   <div
     id="login"
-    style="background: url('http://pic1.win4000.com/wallpaper/2018-12-15/5c14b3caa1be4.jpg')"
   >
     <vue-particles
       color="#dedede"
@@ -41,3 +40,10 @@ clickEffect: 布尔类型。默认true。是否有click特效。
 clickMode: String类型。默认true。可用的click模式有: "push", "remove", "repulse", "bubble"。
  */
 </script>
+<style  scoped>
+.login {
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+

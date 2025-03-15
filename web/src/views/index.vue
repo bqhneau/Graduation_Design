@@ -4,9 +4,11 @@
     <div class="header-wrapper">
       <header>
         <div class="container">
-          <div class="logo-container">
+          <div class="logo-container" >
             <!-- Website Logo -->
-            <img src="../assets/images/logo.png" alt="" style="width: 315px;">
+            <router-link to="/">
+              <img src="../assets/images/logo.png"  style="width: 315px;cursor: pointer;">
+            </router-link>
             <span class="tag-line">信息交流平台</span>
           </div>
           <!-- Start of Main Navigation -->

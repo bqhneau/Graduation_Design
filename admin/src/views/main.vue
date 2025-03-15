@@ -11,10 +11,10 @@
           active-text-color="#ffd04b"
           :collapse="isCollapse"
         >
-          <el-menu-item style="  color: white; font-size:20px; display: flex;justify-content: space-between;align-items: center;">
+          <el-menu-item style="color: white;">
             <a class="iconfont" v-if="isCollapse" @click="changeCollapse">&#xe64b;</a>
-            <img src="../assets/img/favicon.png" v-if="!isCollapse" style="height: 40px;">
-            <span slot="title" style="font-size:14px">信息平台管理后台</span>
+            <img src="../assets/img/favicon.png" v-if="!isCollapse" style="height: 40px;margin-right: 10px;">
+            <span slot="title" style="font-size:14px;">平台管理后台</span>
           </el-menu-item>
           <el-menu-item index="/" >
             <i class="el-icon-pie-chart"></i>
@@ -65,10 +65,10 @@
       <el-container style=" position:relative ;">
         <el-header>
           <li style="position: absolute;top: 0;">
-            <img src="../assets/img/logo.png" v-if="isCollapse" style="position: absolute;top: 0;left: -15px; width: 305px;">
+            <img src="../assets/img/logo.png" v-if="isCollapse" style="position: absolute;top: 5px;left: -15px; width: 270px;">
             <a class="iconfont" @click="changeCollapse" v-if="!isCollapse">&#xe61f;</a>
           </li>
-          <span style="font-size:14px;position: absolute;top: 0;left: 325px;" v-if="isCollapse" >信息平台管理后台</span>
+          <span style="font-size:14px;position: absolute;top: 0;left: 280px;" v-if="isCollapse" >平台管理后台</span>
 
           <span style="margin-right: 30px">{{uinfo.nickname}}</span>
           <span @click="withdraw">退出</span>
